@@ -1,0 +1,215 @@
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;800&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: 'Montserrat', sans-serif;
+  // font-family: 'Playfair Display', serif;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/*__________ Colors__________*/
+
+$color-m : #feb61c;
+$color-p : #e5dfef;
+$color-pm : #fff;
+$color-b : #e20d0d;
+$color-d : #000;
+
+
+@mixin size($h, $w) {
+  height: $h;
+  width: $w;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin btn() {
+  border: none;
+  background: none;
+  padding: 10px;
+  color: $color-pm;
+  font-size: 18px;
+  font-weight: 800;
+  background: none;
+  border: 0.2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: $color-d;
+    background: $color-pm;
+    border-color: $color-p;
+  }
+
+  &:hover a {
+    color: $color-d;
+    border-color: $color-p;
+  }
+
+}
+
+
+.header {
+  @include size(8vh, 100%);
+  @include flex();
+  justify-content: space-around;
+  position: fixed;
+  background: #000;
+  // background: rgba(0, 0, 0, 0.5);
+  // filter: blur();
+  // -webkit-backdrop-filter: blur(5px);
+  // backdrop-filter: blur(5px);
+  // background: hsla(0, 0%, 100%, .1);
+
+  .header_left {
+    height: 100%;
+
+    img {
+      height: 90%;
+    }
+  }
+
+  .header_right {
+    button {
+      @include btn;
+      border: none;
+      font-size: 32px;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+
+}
+
+.footer {
+  @include size(8vh, 100%);
+  @include flex();
+  background: $color-d;
+  color: $color-pm;
+  font-size: 16px;
+  font-weight: 200;
+
+}
+
+.container {
+  @include size(100%, 100%);
+  padding: 10vw;
+  padding-top: 8vh;
+  min-height: 92vh;
+  background: rgba(0, 0, 0, .06);
+
+  .userInput {
+    margin: auto;
+    width: 35%;
+    min-width: 320px;
+    margin-top: 40px;
+    @include flex();
+    flex-direction: column;
+    align-items: flex-start;
+    background: $color-pm;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
+    border-radius: 10px;
+    padding: 10px;
+
+    textarea {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 10px;
+    }
+
+    textarea:focus {
+      border: none;
+      outline: none;
+      // font-size: 16px;
+    }
+
+    .userInput_features {
+      width: 100%;
+      @include flex();
+      justify-content: space-between;
+
+      button {
+        @include btn();
+
+        img {
+          @include size(28px, 28px);
+        }
+      }
+
+      p {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .notes {
+    @include size(100%, 100%);
+    @include flex();
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .saveNotes {
+      width: 30%;
+      min-width: 320px;
+      background: $color-pm;
+      border-radius: 10px;
+      word-spacing: 1px;
+      line-height: 24px;
+      padding: 10px;
+      margin: 20px;
+      color: $color-d;
+      box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.01);
+      }
+
+      .userNotes {
+        .boder {
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-radius: 15px;
+          padding: 10px;
+        }
+
+        p {
+          margin-bottom: 10px;
+        }
+
+        .buttons {
+          margin-top: 10px;
+
+          &:nth-child(1) {
+            margin-left: 10px;
+          }
+
+          button {
+            @include btn();
+            padding: 5px;
+
+            img {
+              @include size(28px, 28px);
+            }
+          }
+
+          #btn {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
